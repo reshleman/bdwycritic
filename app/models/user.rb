@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
 
-  def reviewed?(event)
-    reviewed_events.include?(event)
+  def can_review?(event)
+    reviewed_events.exclude?(event)
   end
 end
