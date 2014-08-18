@@ -1,0 +1,15 @@
+<h2><%= @event.name %></h2>
+
+<h3>Add a Media Review</h3>
+
+<%= form_for [:admin, @event, @media_review] do |form| %>
+  <%= render "errors", object: @media_review %>
+
+  <div>
+    <%= form.label :url, "URL" %>
+    <%= form.text_field :url %>
+  </div>
+  <div>
+    <%= form.submit "Add Media Review" %>
+  </div>
+<% end %>
