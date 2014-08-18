@@ -5,7 +5,6 @@ ruby '2.1.2'
 gem 'rails', '4.1.4'
 gem 'pg'
 
-gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
@@ -15,6 +14,10 @@ gem 'monban', '~> 0.1.1'
 gem 'httparty', '~> 0.13.1'
 gem 'alchemy-api-rb', '~> 0.3.0', require: 'alchemy_api'
 gem 'htmlentities', '~> 4.3.2'
+
+gem 'sass', '~> 3.3.14'
+gem 'bourbon', '~> 4.0.1'
+gem 'bitters', '~> 0.10.0'
 
 group :develoment do
   gem 'spring'
