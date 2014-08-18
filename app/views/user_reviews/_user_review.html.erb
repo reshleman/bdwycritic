@@ -1,0 +1,15 @@
+<div class="user-review">
+  <h4>Review by <%= user_review.user.email %>:</h4>
+
+  <p>
+    <em>Rating:</em> <%= user_review.rating %>
+  </p>
+
+  <p>
+    <em>Review:</em> <%= user_review.body %>
+  </p>
+
+  <p>
+    <em>Reviewed <%= time_ago_in_words user_review.created_at %> ago.</em>
+  </p>
+</div>
