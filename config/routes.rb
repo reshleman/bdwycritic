@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "events#new", as: :dashboard
-    resources :events, only: [:new, :create]
+    resources :events, only: [:new, :create] do
+      resources :media_reviews, only: [:new, :create]
+    end
   end
 end
