@@ -17,7 +17,9 @@
 <div class="user-reviews">
   <h3>User Reviews</h3>
 
-  <%= link_to "Write a Review", new_event_user_review_path(@event) %>
+  <% unless current_user.reviewed?(@event) %>
+    <%= link_to "Write a Review", new_event_user_review_path(@event) %>
+  <% end %>
 
   <%= render @event.user_reviews %>
 </div>
