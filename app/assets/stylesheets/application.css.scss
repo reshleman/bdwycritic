@@ -1,0 +1,32 @@
+@import "bourbon";
+@import "base/base";
+@import "neat";
+
+@import "grid_items";
+@import "navigation";
+@import "reviews";
+@import "events";
+
+.container {
+  @include outer-container;
+}
+
+.event {
+  @include span-columns(6);
+}
+
+.event-description {
+  @include span-columns(8);
+}
+
+.event-details {
+  @include span-columns(4);
+}
+
+.user-reviews {
+  @include span-columns(6);
+}
+
+.media-reviews {
+  @include span-columns(6);
+}

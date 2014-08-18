@@ -1,0 +1,25 @@
+<header class="navigation">
+  <div class="menu-wrapper">
+    <%= link_to root_path, class: "logo" do %>
+      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
+    <% end %>
+    <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li class="nav-link"><%= link_to "Home", root_path %></li>
+        <li class="nav-link"><%= link_to "All Events", events_path %></li>
+        <% if current_user.admin? %>
+          <li class="nav-link"><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <div class="search-and-submit">
+          <%= render "search_form" %>
+        </div>
+      </div>
+      <%= render "sign_in_out_up_links", css_class: "navigation-button" %>
+    </div>
+  </div>
+</header>

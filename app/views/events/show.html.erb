@@ -1,40 +1,35 @@
-<div class="event-information">
+<div class="grid-item event-description">
   <h2><%= @event.name %></h2>
-
-  <%= render "event_preferences/links", event: @event %>
-
-  <div>
-    <%= render "event_statistics", event: @event %>
-  </div>
-
-  <p>
-    <em>Description:</em> <%= @event.description %>
-  </p>
-
-  <p>
-    <em>Venue:</em> <%= @event.venue %>
-  </p>
-
-  <p>
-    <em>Closing Date:</em> <%= @event.closing_date %>
-  </p>
+  <p><%= @event.description %></p>
 </div>
 
-<div class="user-reviews">
+<div class="grid-item event-details">
+  <h4>Show Details</h4>
+  <p><em>Venue:</em> <%= @event.venue %></p>
+  <p><em>Closing Date:</em> <%= formatted_closing_date(@event.closing_date) %></p>
+  <%= render "event_statistics", event: @event %>
+  <%= render "event_preferences/links", event: @event %>
+</div>
+
+<div class="grid-item reviews user-reviews">
   <h3>User Reviews</h3>
 
   <% if current_user.can_review?(@event) %>
-    <%= link_to "Write a Review", new_event_user_review_path(@event) %>
+    <div class="review-new-link">
+      <%= link_to "Write a Review", new_event_user_review_path(@event) %>
+    </div>
   <% end %>
 
   <%= render @event.user_reviews %>
 </div>
 
-<div class="media-reviews">
-  <h3>Media Reviews</h3>
+<div class="grid-item reviews media-reviews">
+  <h3>Critic Reviews</h3>
 
   <% if current_user.admin? %>
-    <%= link_to "Add a Media Review", new_admin_event_media_review_path(@event) %>
+    <div class="review-new-link">
+      <%= link_to "Add a Critic Review", new_admin_event_media_review_path(@event) %>
+    </div>
   <% end %>
 
   <%= render @event.media_reviews %>

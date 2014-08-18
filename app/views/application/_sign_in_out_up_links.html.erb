@@ -1,0 +1,6 @@
+<% if signed_in? %>
+  <%= link_to "Sign out", session_path, method: :delete, class: css_class %>
+<% else %>
+  <%= link_to "Sign in", new_session_path, class: css_class %>
+  <%= link_to "Sign up", new_user_path, class: css_class %>
+<% end %>

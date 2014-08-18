@@ -1,11 +1,11 @@
 <h2><%= @event.name %></h2>
 
-<h3>Add a Media Review</h3>
+<h3>Add a Critic Review</h3>
 
 <%= form_for [:admin, @event, @media_review] do |form| %>
   <%= render "media_review_form", form: form %>
 
   <div>
-    <%= form.submit "Add Media Review" %>
+    <%= form.submit "Add Critic Review" %>
   </div>
 <% end %>

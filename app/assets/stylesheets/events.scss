@@ -1,0 +1,18 @@
+.events {
+  @include clearfix;
+  line-height: 1em;
+
+  .event {
+    padding-bottom: 0;
+
+    p {
+      margin-left: .8em;
+      margin-bottom: .3em;
+    }
+
+    p.venue {
+      font-weight: bold;
+    }
+  }
+}
+

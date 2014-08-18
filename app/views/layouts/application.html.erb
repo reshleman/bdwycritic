@@ -8,28 +8,15 @@
 </head>
 <body>
 
-<nav>
-  <%= link_to "Home", root_path %>
+<div class="container">
+  <%= render "navigation" %>
 
-  <% if current_user.admin? %>
-    <%= link_to "Admin Dashboard", admin_dashboard_path %>
-  <% end %>
+  <%= render "flash_messages" %>
 
-  <% if signed_in? %>
-    <%= link_to "Sign out", session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign in", new_session_path %>
-    <%= link_to "Sign up", new_user_path %>
-  <% end %>
-</nav>
-
-<%= render "search_form" %>
-
-<%= render "flash_messages" %>
-
-<h1>YoloNinja</h1>
-
-<%= yield %>
+  <div class="grid-items">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>
