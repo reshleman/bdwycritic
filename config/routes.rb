@@ -10,12 +10,13 @@ Rails.application.routes.draw do
   end
 
   constraints Monban::Constraints::SignedOut.new do
-    root "session#new"
+    root "sessions#new"
   end
 
   resources :events, only: [:show, :index]
 
   namespace :admin do
+    root "events#new", as: :dashboard
     resources :events, only: [:new, :create]
   end
 end

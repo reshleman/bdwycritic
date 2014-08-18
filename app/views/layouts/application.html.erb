@@ -9,6 +9,12 @@
 <body>
 
 <nav>
+  <%= link_to "Home", root_path %>
+
+  <% if current_user.admin? %>
+    <%= link_to "Admin Dashboard", admin_dashboard_path %>
+  <% end %>
+
   <% if signed_in? %>
     <%= link_to "Sign out", session_path, method: :delete %>
   <% else %>
