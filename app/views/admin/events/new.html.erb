@@ -1,0 +1,23 @@
+<h2>Add an Event</h2>
+
+<%= form_for [:admin, @event] do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :venue %>
+    <%= form.text_field :venue %>
+  </div>
+  <div>
+    <%= form.label :closing_date %>
+    <%= form.date_field :closing_date %>
+  </div>
+  <div>
+    <%= form.submit "Create Event" %>
+  </div>
+<% end %>
