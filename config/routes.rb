@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     root "sessions#new"
   end
 
-  resources :events, only: [:show, :index]
+  resources :events, only: [:show, :index] do
+    resources :user_reviews, only: [:new, :create]
+  end
 
   namespace :admin do
     root "events#new", as: :dashboard

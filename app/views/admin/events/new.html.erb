@@ -1,6 +1,8 @@
 <h2>Add an Event</h2>
 
 <%= form_for [:admin, @event] do |form| %>
+  <%= render "errors", object: @event %>
+
   <div>
     <%= form.label :name %>
     <%= form.text_field :name %>
