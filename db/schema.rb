@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818193159) do
+ActiveRecord::Schema.define(version: 20140818205532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20140818193159) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "media_reviews", force: true do |t|
+    t.string   "url",        null: false
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "media_reviews", ["event_id"], name: "index_media_reviews_on_event_id", using: :btree
 
   create_table "user_reviews", force: true do |t|
     t.text     "body",       null: false
