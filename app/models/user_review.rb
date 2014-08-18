@@ -11,5 +11,10 @@ class UserReview < ActiveRecord::Base
       greater_than_or_equal_to: 0,
       less_than_or_equal_to: 10
     }
-  validates :user, presence: true
+  validates :user,
+    presence: true,
+    uniqueness: {
+      scope: :event,
+      message: "can only review an event once"
+    }
 end
