@@ -10,8 +10,13 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'monban', '~> 0.1.1'
+gem 'httparty', '~> 0.13.1'
 
 group :develoment do
   gem 'spring'
   gem 'monban-generators'
+end
+
+group :development, :test do
+  gem 'dotenv-rails'
 end
