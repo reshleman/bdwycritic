@@ -9,3 +9,13 @@
 <div class="events">
   <%= render @closed_events %>
 </div>
+
+<div>
+  <h2>NYT Events</h2>
+
+  <%= @nyt_events_result.status %><br />
+  <%= @nyt_events_result.copyright %><br />
+  <%= @nyt_events_result.num_results %><br />
+  <%= @nyt_events_result.events.inspect %><br />
+  <%= @nyt_events_result.events[0].event_name %>
+</div>
