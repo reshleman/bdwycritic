@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @current_events = Event.current
+    @closed_events = Event.closed
   end
 end

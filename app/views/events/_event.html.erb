@@ -1,3 +1,4 @@
 <div class="event">
-  <%= link_to event.name, event %> (<%= event.venue %>)
+  <%= link_to event.name, event %> @ <%= event.venue %>
+  (<%= closing_date_in_words(event.closing_date) %>)
 </div>
