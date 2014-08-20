@@ -13,14 +13,6 @@ module NytEvents
       end
     end
 
-    def status
-      query_result.response.code.to_i
-    end
-
-    def num_results
-      query_result["num_results"]
-    end
-
     private
 
     attr_reader :query_params, :query_result
