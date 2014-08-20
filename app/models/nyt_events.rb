@@ -1,4 +1,4 @@
-module NytEventListings
+module NytEvents
   VERSION = "v2"
   BASE_URL = "http://api.nytimes.com/svc/events/#{VERSION}"
   ENDPOINT = "/listings"

@@ -13,9 +13,11 @@
 <div>
   <h2>NYT Events</h2>
 
-  <%= @nyt_events_result.status %><br />
-  <%= @nyt_events_result.copyright %><br />
-  <%= @nyt_events_result.num_results %><br />
-  <%= @nyt_events_result.events.inspect %><br />
-  <%= @nyt_events_result.events[0].event_name %>
+  <%= @nyt_events_query.status %><br />
+  <%= @nyt_events_query.num_results %><br />
+  <%= @nyt_events_query.events.inspect %><br />
+  <% @nyt_events_query.events.each do |event| %>
+    <%= event.event_name %><br />
+    <%= event.some_fake_field.inspect %><br />
+  <% end %>
 </div>
