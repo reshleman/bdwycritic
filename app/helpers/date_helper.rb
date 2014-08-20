@@ -1,6 +1,8 @@
 module DateHelper
   def closing_date_in_words(date)
-    if still_open?(date)
+    if date.nil?
+      "open run"
+    elsif still_open?(date)
       "closing #{distance_of_date_in_words(date)}"
     else
       "closed #{distance_of_date_in_words(date)}"

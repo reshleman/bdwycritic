@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   validates :nyt_event_id, uniqueness: true, allow_blank: true
 
   def self.current
-    where("closing_date >= ?", Date.today)
+    where("closing_date IS NULL OR closing_date >= ?", Date.today)
   end
 
   def self.closed

@@ -39,10 +39,10 @@ class EventsImporter
   end
 
   def strip_single_quotes(string)
-    string.gsub(/\A‘|’\Z/, "")
+    string.strip.gsub(/\A‘|’\Z/, "")
   end
 
   def strip_p_tags(string)
-    string.gsub(/\A<p>|<\/p>\Z/, "")
+    string.strip.gsub(/\A<p>|<\/p>\Z/, "")
   end
 end
