@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
     where("closing_date < ?", Date.today)
   end
 
-  def older_than_nyt?(date)
+  def nyt_date_older_than?(date)
     nyt_updated_at < date
   end
 end

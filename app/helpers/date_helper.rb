@@ -1,6 +1,6 @@
 module DateHelper
   def closing_date_in_words(date)
-    if date.nil?
+    if no_closing_date?(date)
       "open run"
     elsif still_open?(date)
       "closing #{distance_of_date_in_words(date)}"
@@ -10,6 +10,10 @@ module DateHelper
   end
 
   private
+
+  def no_closing_date?(date)
+    date.nil?
+  end
 
   def still_open?(date)
     date >= Date.today
