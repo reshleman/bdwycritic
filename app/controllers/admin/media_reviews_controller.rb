@@ -6,7 +6,10 @@ class Admin::MediaReviewsController < AdminController
 
   def create
     @event = find_event
-    @media_review = MediaReview.new(media_review_params)
+    @media_review = MediaReview.new_with_analysis(
+      media_review_params,
+      media_review_text
+    )
 
     if @event.media_reviews << @media_review
       redirect_to @event
@@ -24,6 +27,10 @@ class Admin::MediaReviewsController < AdminController
   def media_review_params
     params.
       require(:media_review).
-      permit(:url)
+      permit(:url, :source, :headline, :author)
+  end
+
+  def media_review_text
+    params[:media_review_text]
   end
 end

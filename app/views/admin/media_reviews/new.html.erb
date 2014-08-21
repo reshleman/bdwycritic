@@ -10,6 +10,22 @@
     <%= form.text_field :url %>
   </div>
   <div>
+    <%= form.label :source %>
+    <%= form.text_field :source %>
+  </div>
+  <div>
+    <%= form.label :headline %>
+    <%= form.text_field :headline %>
+  </div>
+  <div>
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+  <div>
+    <%= form.label :review_text %>
+    <%= text_area_tag :media_review_text %>
+  </div>
+  <div>
     <%= form.submit "Add Media Review" %>
   </div>
 <% end %>
