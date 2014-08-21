@@ -6,11 +6,9 @@ class MediaReview < ActiveRecord::Base
   validates :source, presence: true
   validates :url, presence: true
 
-  def self.analyze_new(review_params, review_text)
+  def self.new_with_analysis(review_params, review_text)
     new(review_params.merge(sentiments_from(review_text)))
   end
-
-  private
 
   def self.sentiments_from(text)
     analyzer = SentimentAnalyzer.new(text)
@@ -20,4 +18,5 @@ class MediaReview < ActiveRecord::Base
       sentiment_neutral: analyzer.neutral
     }
   end
+  private_class_method :sentiments_from
 end

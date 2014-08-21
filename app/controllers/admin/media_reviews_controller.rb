@@ -6,7 +6,7 @@ class Admin::MediaReviewsController < AdminController
 
   def create
     @event = find_event
-    @media_review = MediaReview::analyze_new(media_review_params, review_text)
+    @media_review = MediaReview.new_with_analysis(media_review_params, review_text)
 
     if @event.media_reviews << @media_review
       redirect_to @event
