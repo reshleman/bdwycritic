@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
-  has_many :user_reviews
-  has_many :media_reviews
+  has_many :user_reviews, dependent: :destroy
+  has_many :media_reviews, dependent: :destroy
 
   validates :name, presence: true
   validates :nyt_event_id, uniqueness: true, allow_blank: true
