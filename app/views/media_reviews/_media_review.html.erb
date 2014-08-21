@@ -1,3 +1,8 @@
 <div class="media-review">
-  <%= link_to media_review.url, media_review.url %>
+  <%= media_review.source %>:
+  <%= link_to media_review.headline, media_review.url %>
+  (by <%= media_review.author %>)
+  [+<%= media_review.sentiment_positive %>,
+  -<%= media_review.sentiment_negative %>,
+  ~<%= media_review.sentiment_neutral %>]
 </div>
