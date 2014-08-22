@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :user_reviews, only: [:new, :create]
   end
 
+  resource :search_results, only: [:show], as: :search
+
   namespace :admin do
     root "events#new", as: :dashboard
     resources :events, only: [:new, :create] do
