@@ -6,7 +6,7 @@ module EventPreferencesHelper
   end
 
   def negative_preference_link(event)
-    link_to "I want to see this",
+    link_to "Not interested",
     event_preferences_path(event, wants_to_see: false),
     method: :post
   end
