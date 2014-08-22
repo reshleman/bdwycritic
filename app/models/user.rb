@@ -11,16 +11,16 @@ class User < ActiveRecord::Base
   end
 
   def has_no_preference_for?(event)
-    event_preferences.find_by(event: event).blank?
+    !event_preferences.exists?(event: event)
   end
 
   def wants_to_see?(event)
-    preference = event_preferences.find_by(event: event)
+    preference = preference_for(event)
     preference.present? && preference.wants_to_see?
   end
 
   def does_not_want_to_see?(event)
-    preference = event_preferences.find_by(event: event)
+    preference = preference_for(event)
     preference.present? && !preference.wants_to_see?
   end
 
@@ -28,5 +28,11 @@ class User < ActiveRecord::Base
     preference = event_preferences.find_or_initialize_by(event: event)
     preference.wants_to_see = wants_to_see
     preference.save
+  end
+
+  private
+
+  def preference_for(event)
+    event_preferences.find_by(event: event)
   end
 end
