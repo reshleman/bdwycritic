@@ -13,6 +13,10 @@ class Event < ActiveRecord::Base
     where("closing_date < ?", Date.today)
   end
 
+  def self.search(event_name)
+    where("name ILIKE ?", "%#{event_name}%")
+  end
+
   def nyt_date_older_than?(date)
     nyt_updated_at < date
   end
