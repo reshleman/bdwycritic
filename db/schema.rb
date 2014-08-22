@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821174501) do
+ActiveRecord::Schema.define(version: 20140822165749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_preferences", force: true do |t|
+    t.integer  "user_id",      null: false
+    t.integer  "event_id",     null: false
+    t.boolean  "wants_to_see"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_preferences", ["event_id"], name: "index_event_preferences_on_event_id", using: :btree
+  add_index "event_preferences", ["user_id"], name: "index_event_preferences_on_user_id", using: :btree
 
   create_table "events", force: true do |t|
     t.string   "name",           null: false

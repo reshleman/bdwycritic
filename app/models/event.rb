@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  has_many :event_preferences
   has_many :user_reviews, dependent: :destroy
   has_many :media_reviews, dependent: :destroy
 
