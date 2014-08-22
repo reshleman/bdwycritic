@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:show, :index] do
     resources :user_reviews, only: [:new, :create]
+    resources :event_preferences, only: [:create], as: :preferences
   end
 
   resource :search_results, only: [:show], as: :search

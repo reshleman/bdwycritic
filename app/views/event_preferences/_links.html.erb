@@ -1,0 +1,12 @@
+<% if signed_in? %>
+  <% if current_user.wants_to_see?(event) %>
+    <%= "You want to see this" %> /
+    <%= render "event_preferences/no_link", event: event %>
+  <% elsif current_user.does_not_want_to_see?(event)%>
+    <%= render "event_preferences/yes_link", event: event %> /
+    <%= "You're not interested" %>
+  <% else %>
+    <%= render "event_preferences/yes_link", event: event %> /
+    <%= render "event_preferences/no_link", event: event %>
+  <% end %>
+<% end %>

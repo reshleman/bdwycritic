@@ -9,4 +9,24 @@ class User < ActiveRecord::Base
   def can_review?(event)
     reviewed_events.exclude?(event)
   end
+
+  def has_no_preference_for?(event)
+    event_preferences.find_by(event: event).blank?
+  end
+
+  def wants_to_see?(event)
+    preference = event_preferences.find_by(event: event)
+    preference.present? && preference.wants_to_see?
+  end
+
+  def does_not_want_to_see?(event)
+    preference = event_preferences.find_by(event: event)
+    preference.present? && !preference.wants_to_see?
+  end
+
+  def create_or_update_preference(event, wants_to_see)
+    preference = event_preferences.find_or_initialize_by(event: event)
+    preference.wants_to_see = wants_to_see
+    preference.save
+  end
 end
