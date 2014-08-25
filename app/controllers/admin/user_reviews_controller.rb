@@ -13,6 +13,14 @@ class Admin::UserReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    user_review = find_user_review
+    event = user_review.event
+    user_review.destroy
+
+    redirect_to event
+  end
+
   private
 
   def find_user_review

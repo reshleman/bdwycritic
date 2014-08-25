@@ -27,6 +27,6 @@ Rails.application.routes.draw do
       resources :media_reviews, only: [:new, :create]
     end
 
-    resources :user_reviews, only: [:edit, :update]
+    resources :user_reviews, only: [:edit, :update, :destroy]
   end
 end
