@@ -32,6 +32,14 @@ class Admin::MediaReviewsController < AdminController
     end
   end
 
+  def destroy
+    media_review = find_media_review
+    event = media_review.event
+    media_review.destroy
+
+    redirect_to event
+  end
+
   private
 
   def find_event

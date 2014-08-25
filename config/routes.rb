@@ -28,6 +28,6 @@ Rails.application.routes.draw do
     end
 
     resources :user_reviews, only: [:edit, :update, :destroy]
-    resources :media_reviews, only: [:edit, :update]
+    resources :media_reviews, only: [:edit, :update, :destroy]
   end
 end
