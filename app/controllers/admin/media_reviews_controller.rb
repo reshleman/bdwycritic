@@ -6,7 +6,7 @@ class Admin::MediaReviewsController < AdminController
 
   def create
     @event = find_event
-    @media_review = MediaReview.new_with_analysis(media_review_params)
+    @media_review = MediaReview.new_from_url_with_analysis(media_review_params)
 
     unless @event.media_reviews << @media_review
       render :new
