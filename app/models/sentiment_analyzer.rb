@@ -1,8 +1,3 @@
-AlchemyAPI::configure do |config|
-  config.apikey = ENV['ALCHEMY_API_KEY']
-  config.output_mode = :json
-end
-
 class SentimentAnalyzer
   attr_reader :analyzed_text
 
