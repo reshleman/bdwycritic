@@ -1,8 +1,8 @@
-<%= render "errors", object: user_review %>
+<%= render "errors", object: form.object %>
 
 <div>
   <%= form.label :rating %>
-  <%= form.select :rating, options_for_select(0..10, user_review.rating) %>
+  <%= form.select :rating, options_for_select(0..10, form.object.rating) %>
 </div>
 <div>
   <%= form.label :body %>

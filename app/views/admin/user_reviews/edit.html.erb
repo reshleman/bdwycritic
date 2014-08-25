@@ -4,7 +4,7 @@
 
 <%= form_for [:admin, @user_review] do |form| %>
 
-  <%= render "user_reviews/user_review_form", form: form, user_review: @user_review %>
+  <%= render "user_reviews/user_review_form", form: form %>
 
   <div>
     <%= form.submit "Update Review" %>

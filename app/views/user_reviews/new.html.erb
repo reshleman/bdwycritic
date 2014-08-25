@@ -3,7 +3,7 @@
 <h3>Write a Review</h3>
 
 <%= form_for [@event, @user_review] do |form| %>
-  <%= render "user_review_form", form: form, user_review: @user_review %>
+  <%= render "user_review_form", form: form %>
 
   <div>
     <%= form.submit "Add your Review" %>
