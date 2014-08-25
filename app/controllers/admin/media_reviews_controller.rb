@@ -5,15 +5,11 @@ class Admin::MediaReviewsController < AdminController
   end
 
   def create
+    @analyzed_text = metadata.analyzed_text
     @event = find_event
-    @media_review = MediaReview.new_with_analysis(
-      media_review_params,
-      media_review_text
-    )
+    @media_review = @event.media_reviews.new(media_review_params_with_metadata)
 
-    if @event.media_reviews << @media_review
-      redirect_to @event
-    else
+    unless @media_review.save
       render :new
     end
   end
@@ -50,13 +46,32 @@ class Admin::MediaReviewsController < AdminController
     MediaReview.find(params[:id])
   end
 
+  def metadata
+    @metadata ||= MediaReviewMetadataExtractor.new(media_review_url)
+  end
+
+  def media_review_url
+    media_review_params[:url]
+  end
+
   def media_review_params
     params.
       require(:media_review).
       permit(:url, :source, :headline, :author)
   end
 
-  def media_review_text
-    params[:media_review_text]
+  def media_review_params_with_metadata
+    params.
+      require(:media_review).
+      permit(:url, :source).
+      merge(metadata_params)
+  end
+
+  def metadata_params
+    {
+      headline: metadata.title,
+      author: metadata.author,
+      sentiment: metadata.sentiment
+    }
   end
 end

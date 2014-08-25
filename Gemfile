@@ -13,6 +13,7 @@ gem 'turbolinks'
 
 gem 'monban', '~> 0.1.1'
 gem 'httparty', '~> 0.13.1'
+gem 'alchemy-api-rb', '~> 0.3.0', require: 'alchemy_api'
 
 group :develoment do
   gem 'spring'

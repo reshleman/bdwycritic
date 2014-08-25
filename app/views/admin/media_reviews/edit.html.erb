@@ -6,6 +6,14 @@
   <%= render "media_review_form", form: form %>
 
   <div>
+    <%= form.label :headline %>
+    <%= form.text_field :headline %>
+  </div>
+  <div>
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+  <div>
     <%= form.submit "Update Media Review" %>
   </div>
 <% end %>

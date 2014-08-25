@@ -1,0 +1,22 @@
+<h2>Successfully Created a Media Review for "<%= @event.name %>"</h2>
+
+<div>
+  <%= link_to "Return to Event", @event %>
+  <%= link_to "Add another review", new_admin_event_media_review_path %>
+  <%= link_to "Edit this review", edit_admin_media_review_path(@media_review) %>
+  <%= link_to "Delete this review", admin_media_review_path(@media_review), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
+
+<div>
+  <%= @media_review.source %>:
+  <%= link_to @media_review.headline, @media_review.url %>
+  (by <%= @media_review.author %>)
+  [<%= @media_review.sentiment %>]
+</div>
+
+<div>
+  <p>This text was analyzed: </p>
+
+  <%= simple_format(@analyzed_text) %>
+</div>
+
