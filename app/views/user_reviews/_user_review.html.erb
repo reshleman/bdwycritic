@@ -1,6 +1,11 @@
 <div class="user-review">
   <h4>Review by <%= user_review.user.email %>:</h4>
 
+  <% if current_user.admin? %>
+    <%= link_to "Edit", edit_admin_user_review_path(user_review) %>
+    <%= link_to "Delete", admin_user_review_path(user_review), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+
   <p>
     <em>Rating:</em> <%= user_review.rating %>
   </p>
