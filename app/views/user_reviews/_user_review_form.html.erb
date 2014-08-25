@@ -1,0 +1,10 @@
+<%= render "errors", object: user_review %>
+
+<div>
+  <%= form.label :rating %>
+  <%= form.select :rating, options_for_select(0..10, user_review.rating) %>
+</div>
+<div>
+  <%= form.label :body %>
+  <%= form.text_area :body %>
+</div>

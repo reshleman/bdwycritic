@@ -3,16 +3,8 @@
 <h3>Write a Review</h3>
 
 <%= form_for [@event, @user_review] do |form| %>
-  <%= render "errors", object: @user_review %>
+  <%= render "user_review_form", form: form, user_review: @user_review %>
 
-  <div>
-    <%= form.label :rating %>
-    <%= form.select :rating, options_for_select(0..10) %>
-  </div>
-  <div>
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
   <div>
     <%= form.submit "Add your Review" %>
   </div>
