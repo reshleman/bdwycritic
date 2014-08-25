@@ -5,4 +5,8 @@
   [+<%= media_review.sentiment_positive %>,
   -<%= media_review.sentiment_negative %>,
   ~<%= media_review.sentiment_neutral %>]
+
+  <% if current_user.admin? %>
+    <%= link_to "Edit", edit_admin_media_review_path(media_review) %>
+  <% end %>
 </div>
