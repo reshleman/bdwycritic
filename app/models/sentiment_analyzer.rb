@@ -1,30 +1,29 @@
+AlchemyAPI::configure do |config|
+  config.apikey = ENV['ALCHEMY_API_KEY']
+  config.output_mode = :json
+end
+
 class SentimentAnalyzer
-  BASE_URL = "http://text-processing.com/api"
-  ENDPOINT = "/sentiment/"
-  URL = BASE_URL + ENDPOINT
+  attr_reader :analyzed_text
 
-  def initialize(text)
-    @post_params = { body: { text: URI::encode_www_form_component(text) } }
-    @query_result = perform_query
+  def initialize(url)
+    query_response = perform_query(url)
+
+    @sentiments_result = query_response["docSentiment"]
+    @analyzed_text = query_response["text"]
   end
 
-  def positive
-    query_result["probability"]["pos"]
-  end
-
-  def negative
-    query_result["probability"]["neg"]
-  end
-
-  def neutral
-    query_result["probability"]["neutral"]
+  def score
+    sentiments_result["score"]
   end
 
   private
 
-  attr_reader :post_params, :query_result
+  attr_reader :sentiments_result
 
-  def perform_query
-    HTTParty::post(URL, post_params)
+  def perform_query(url)
+    query = AlchemyAPI::SentimentAnalysis.new
+    query.search(url: url, showSourceText: 1)
+    JSON.parse(query.response.body)
   end
 end

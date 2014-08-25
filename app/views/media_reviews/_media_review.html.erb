@@ -2,9 +2,7 @@
   <%= media_review.source %>:
   <%= link_to media_review.headline, media_review.url %>
   (by <%= media_review.author %>)
-  [+<%= media_review.sentiment_positive %>,
-  -<%= media_review.sentiment_negative %>,
-  ~<%= media_review.sentiment_neutral %>]
+  [<%= media_review.sentiment %>]
 
   <% if current_user.admin? %>
     <%= link_to "Edit", edit_admin_media_review_path(media_review) %>
