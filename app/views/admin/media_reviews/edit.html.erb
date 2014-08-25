@@ -1,0 +1,11 @@
+<h2><%= @media_review.event.name %></h2>
+
+<h3>Edit a Media Review</h3>
+
+<%= form_for [:admin, @media_review] do |form| %>
+  <%= render "media_review_form", form: form %>
+
+  <div>
+    <%= form.submit "Update Media Review" %>
+  </div>
+<% end %>

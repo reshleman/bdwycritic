@@ -5,4 +5,9 @@
   [+<%= media_review.sentiment_positive %>,
   -<%= media_review.sentiment_negative %>,
   ~<%= media_review.sentiment_neutral %>]
+
+  <% if current_user.admin? %>
+    <%= link_to "Edit", edit_admin_media_review_path(media_review) %>
+    <%= link_to "Delete", admin_media_review_path(media_review), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
 </div>

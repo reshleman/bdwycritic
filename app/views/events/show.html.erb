@@ -23,15 +23,15 @@
     <%= link_to "Write a Review", new_event_user_review_path(@event) %>
   <% end %>
 
-  <% if current_user.admin? %>
-    <%= link_to "Add a Media Review", new_admin_event_media_review_path(@event) %>
-  <% end %>
-
   <%= render @event.user_reviews %>
 </div>
 
 <div class="media-reviews">
   <h3>Media Reviews</h3>
+
+  <% if current_user.admin? %>
+    <%= link_to "Add a Media Review", new_admin_event_media_review_path(@event) %>
+  <% end %>
 
   <%= render @event.media_reviews %>
 </div>
