@@ -6,9 +6,9 @@ class Admin::MediaReviewsController < AdminController
 
   def create
     @event = find_event
-    @media_review = MediaReview.new_from_url_with_analysis(media_review_params)
+    @media_review = AnalyzedMediaReview.new(MediaReview.new(media_review_params))
 
-    unless @event.media_reviews << @media_review
+    unless @media_review.save
       render :new
     end
   end
@@ -48,6 +48,7 @@ class Admin::MediaReviewsController < AdminController
   def media_review_params
     params.
       require(:media_review).
-      permit(:url, :source, :headline, :author)
+      permit(:url, :source, :headline, :author).
+      merge(event_id: params[:event_id])
   end
 end
