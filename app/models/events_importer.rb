@@ -30,12 +30,18 @@ class EventsImporter
   end
 
   def update_or_create_from(event, source)
-    event.name = strip_surrounding_single_quotes(source.event_name)
-    event.description = strip_surrounding_p_tags(source.web_description)
-    event.venue = source.venue_name
+    event.name = sanitize(source.event_name)
+    event.description = sanitize(source.web_description)
+    event.venue = sanitize(source.venue_name)
     event.closing_date = source.recurring_end_date
     event.nyt_updated_at = source.last_modified
     event.save!
+  end
+
+  def sanitize(string)
+    string = strip_surrounding_single_quotes(string)
+    string = strip_surrounding_p_tags(string)
+    decode_entities(string)
   end
 
   def strip_surrounding_single_quotes(string)
@@ -44,5 +50,9 @@ class EventsImporter
 
   def strip_surrounding_p_tags(string)
     string.strip.gsub(/\A<p>|<\/p>\Z/, "")
+  end
+
+  def decode_entities(string)
+    HTMLEntities.new.decode(string)
   end
 end
