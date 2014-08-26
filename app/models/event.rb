@@ -24,8 +24,8 @@ class Event < ActiveRecord::Base
     select("COUNT(user_reviews.id) AS num_user_reviews").
     select("AVG(media_reviews.sentiment) AS average_media_review").
     select("AVG(user_reviews.rating) AS average_user_review").
-    joins("LEFT OUTER JOIN media_reviews ON events.id = media_reviews.event_id").
-    joins("LEFT OUTER JOIN user_reviews ON events.id = user_reviews.event_id").
+    joins("LEFT JOIN media_reviews ON events.id = media_reviews.event_id").
+    joins("LEFT JOIN user_reviews ON events.id = user_reviews.event_id").
     group("events.id")
   end
 
