@@ -7,29 +7,7 @@ class AnalyzedMediaReview
     analyze_sentiment
   end
 
-  def save
-    review.save
-  end
-
-  def headline
-    review.headline
-  end
-
-  def author
-    review.author
-  end
-
-  def sentiment
-    review.sentiment
-  end
-
-  def url
-    review.url
-  end
-
-  def source
-    review.source
-  end
+  delegate :save, :headline, :author, :sentiment, :url, :source, to: :review
 
   private
 
