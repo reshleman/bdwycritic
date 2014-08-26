@@ -3,6 +3,6 @@ class SearchResultsController < ApplicationController
 
   def show
     @search_query = params[:event_name]
-    @search_results = Event.search(@search_query)
+    @search_results = Event.search(@search_query).with_review_statistics
   end
 end
