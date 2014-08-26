@@ -18,6 +18,17 @@ class Event < ActiveRecord::Base
     where("name ILIKE ?", "%#{event_name}%")
   end
 
+  def self.with_review_statistics
+    select("events.*").
+    select("COUNT(media_reviews.id) AS num_media_reviews").
+    select("COUNT(user_reviews.id) AS num_user_reviews").
+    select("AVG(media_reviews.sentiment) AS average_media_review").
+    select("AVG(user_reviews.rating) AS average_user_review").
+    joins("LEFT JOIN media_reviews ON events.id = media_reviews.event_id").
+    joins("LEFT JOIN user_reviews ON events.id = user_reviews.event_id").
+    group("events.id")
+  end
+
   def nyt_date_older_than?(date)
     nyt_updated_at < date
   end
