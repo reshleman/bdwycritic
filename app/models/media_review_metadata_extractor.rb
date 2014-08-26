@@ -14,11 +14,11 @@ class MediaReviewMetadataExtractor
   attr_reader :url
 
   def title_query_response
-    @title_query_response ||= AlchemyAPI::TitleExtraction.new.search(url: url)
+    @title_query_response = AlchemyAPI::TitleExtraction.new.search(url: url)
   end
 
   def author_query_response
-    @author_query_respose ||= AlchemyAPI::AuthorExtraction.new.search(url: url)
+    @author_query_respose = AlchemyAPI::AuthorExtraction.new.search(url: url)
   end
 
   def sentiments_query_response
