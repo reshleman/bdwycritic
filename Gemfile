@@ -18,6 +18,7 @@ gem 'htmlentities', '~> 4.3.2'
 gem 'sass', '~> 3.3.14'
 gem 'bourbon', '~> 4.0.1'
 gem 'bitters', '~> 0.10.0'
+gem 'neat', '~> 1.7.0.pre'
 
 group :develoment do
   gem 'spring'

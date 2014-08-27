@@ -1,2 +1,18 @@
 @import "bourbon";
+@import "neat";
 @import "base/base";
+
+div.container {
+  @include outer-container;
+}
+
+div.event-information {
+}
+
+div.user-reviews {
+  @include span-columns(6);
+}
+
+div.media-reviews {
+  @include span-columns(6);
+}
