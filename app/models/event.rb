@@ -1,7 +1,6 @@
 class Event < ActiveRecord::Base
   has_many :event_preferences
   has_many :media_reviews, dependent: :destroy
-  has_many :reviewing_users, through: :user_reviews, source: :user
   has_many :user_reviews, dependent: :destroy
 
   validates :name, presence: true

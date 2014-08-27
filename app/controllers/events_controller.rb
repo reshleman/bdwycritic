@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.
       with_review_statistics.
-      includes(:media_reviews, :user_reviews, :reviewing_users).
+      includes(user_reviews: :user).
       find(params[:id])
   end
 
