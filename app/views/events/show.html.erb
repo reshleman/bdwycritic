@@ -1,26 +1,17 @@
-<div class="event-information">
+<div class="grid-item event-description">
   <h2><%= @event.name %></h2>
-
-  <%= render "event_preferences/links", event: @event %>
-
-  <div>
-    <%= render "event_statistics", event: @event %>
-  </div>
-
-  <p>
-    <em>Description:</em> <%= @event.description %>
-  </p>
-
-  <p>
-    <em>Venue:</em> <%= @event.venue %>
-  </p>
-
-  <p>
-    <em>Closing Date:</em> <%= @event.closing_date %>
-  </p>
+  <p><%= @event.description %></p>
 </div>
 
-<div class="user-reviews">
+<div class="grid-item event-details">
+  <h4>Show Details</h4>
+  <p><em>Venue:</em> <%= @event.venue %></p>
+  <p><em>Closing Date:</em> <%= @event.closing_date %></p>
+  <%= render "event_preferences/links", event: @event %>
+  <%= render "event_statistics", event: @event %>
+</div>
+
+<div class="grid-item user-reviews">
   <h3>User Reviews</h3>
 
   <% if current_user.can_review?(@event) %>
@@ -30,7 +21,7 @@
   <%= render @event.user_reviews %>
 </div>
 
-<div class="media-reviews">
+<div class="grid-item media-reviews">
   <h3>Media Reviews</h3>
 
   <% if current_user.admin? %>
