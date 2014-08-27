@@ -1,6 +1,5 @@
 <div class="event">
   <%= link_to event.name, event %> @ <%= event.venue %>
   (<%= closing_date_in_words(event.closing_date) %>)
-  [User average: <%= event.average_user_review %> (<%= pluralize event.num_user_reviews, "review" %>)]
-  [Media average: <%= event.average_media_review %> (<%= pluralize event.num_media_reviews, "review" %>)]
+  <%= render "event_statistics", event: event %>
 </div>
