@@ -1,9 +1,7 @@
 <div class="event-information">
   <h2><%= @event.name %></h2>
 
-  <div>
-    <%= render "event_preferences/links", event: @event %>
-  </div>
+  <%= render "event_preferences/links", event: @event %>
 
   <div>
     <%= render "event_statistics", event: @event %>
