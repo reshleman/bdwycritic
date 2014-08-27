@@ -6,7 +6,7 @@
 <div class="grid-item event-details">
   <h4>Show Details</h4>
   <p><em>Venue:</em> <%= @event.venue %></p>
-  <p><em>Closing Date:</em> <%= @event.closing_date %></p>
+  <p><em>Closing Date:</em> <%= formatted_closing_date(@event.closing_date) %></p>
   <%= render "event_preferences/links", event: @event %>
   <%= render "event_statistics", event: @event %>
 </div>

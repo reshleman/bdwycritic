@@ -1,11 +1,19 @@
 module DateHelper
-  def closing_date_in_words(date)
+  def relative_closing_date_in_words(date)
     if no_closing_date?(date)
       "open run"
     elsif still_open?(date)
       "closing #{distance_of_date_in_words(date)}"
     else
       "closed #{distance_of_date_in_words(date)}"
+    end
+  end
+
+  def formatted_closing_date(date)
+    if no_closing_date?(date)
+      "Open run"
+    else
+      date.to_formatted_s(:long)
     end
   end
 

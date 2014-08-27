@@ -1,5 +1,5 @@
 <div class="event">
   <%= link_to event.name, event %> @ <%= event.venue %>
-  (<%= closing_date_in_words(event.closing_date) %>)
+  (<%= relative_closing_date_in_words(event.closing_date) %>)
   <%= render "events/event_statistics", event: event %>
 </div>
