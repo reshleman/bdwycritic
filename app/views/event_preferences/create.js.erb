@@ -1,0 +1,7 @@
+<% if current_user.wants_to_see?(@event) %>
+  $("#positive-preference-link").replaceWith("<%= escape_javascript(positive_preference_text) %>");
+  $("#negative-preference-text").replaceWith("<%= escape_javascript(negative_preference_link(@event)) %>");
+<% else %>
+  $("#positive-preference-text").replaceWith("<%= escape_javascript(positive_preference_link(@event)) %>");
+  $("#negative-preference-link").replaceWith("<%= escape_javascript(negative_preference_text) %>");
+<% end %>

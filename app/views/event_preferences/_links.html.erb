@@ -1,12 +1,14 @@
 <% if signed_in? %>
-  <% if current_user.wants_to_see?(event) %>
-    You want to see this /
-    <%= negative_preference_link(event) %>
-  <% elsif current_user.does_not_want_to_see?(event)%>
-    <%= positive_preference_link(event) %>
-    You're not interested
-  <% else %>
-    <%= positive_preference_link(event) %>
-    <%= negative_preference_link(event) %>
-  <% end %>
+  <div class="event-preferences">
+    <% if current_user.wants_to_see?(event) %>
+      <%= positive_preference_text %>
+      <%= negative_preference_link(event) %>
+    <% elsif current_user.does_not_want_to_see?(event)%>
+      <%= positive_preference_link(event) %>
+      <%= negative_preference_text %>
+    <% else %>
+      <%= positive_preference_link(event) %>
+      <%= negative_preference_link(event) %>
+    <% end %>
+  </div>
 <% end %>
