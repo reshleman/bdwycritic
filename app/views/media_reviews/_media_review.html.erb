@@ -1,11 +1,18 @@
-<div class="media-review">
-  <%= media_review.source %>:
-  <%= link_to media_review.headline, media_review.url %>
-  (by <%= media_review.author %>)
-  [<%= format_media_review(media_review.sentiment) %>]
+<div class="review">
+  <div class="review-image">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+  </div>
 
-  <% if current_user.admin? %>
-    <%= link_to "Edit", edit_admin_media_review_path(media_review) %>
-    <%= link_to "Delete", admin_media_review_path(media_review), method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
+  <div class="review-content">
+    <h1><%= link_to media_review.headline, media_review.url %></h1>
+
+    <% if current_user.admin? %>
+      <%= link_to "Edit", edit_admin_media_review_path(media_review) %>
+      <%= link_to "Delete", admin_media_review_path(media_review), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+
+    <p><em>Sentiment:</em> <%= format_media_review(media_review.sentiment) %></p>
+
+    <p class="review-detail"><%= media_review.source %> review by <%= media_review.author %></p>
+  </div>
 </div>
