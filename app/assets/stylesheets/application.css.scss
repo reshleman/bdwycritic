@@ -1,9 +1,10 @@
 @import "bourbon";
 @import "base/base";
 @import "neat";
-@import "refills/grid_items";
-@import "refills/navigation";
-@import "refills/review";
+
+@import "grid_items";
+@import "navigation";
+@import "reviews";
 @import "events";
 
 .container {
