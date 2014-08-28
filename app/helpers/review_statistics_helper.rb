@@ -8,6 +8,10 @@ module ReviewStatisticsHelper
     format_review(score || 0)
   end
 
+  def number_as_stars(number)
+    "⭑" * number
+  end
+
   private
 
   def format_review(score)

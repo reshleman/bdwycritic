@@ -5,7 +5,7 @@
   <div class="review-content">
     <h4>Review by <%= user_review.user.email %></h4>
 
-    <p><em>Rating:</em> <%= "⭑" * user_review.rating %></p>
+    <p><em>Rating:</em> <%= number_as_stars(user_review.rating) %></p>
 
     <p><%= user_review.body %></p>
 
