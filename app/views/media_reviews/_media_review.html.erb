@@ -4,15 +4,17 @@
   </div>
 
   <div class="review-content">
-    <h1><%= link_to media_review.headline, media_review.url %></h1>
-
-    <% if current_user.admin? %>
-      <%= link_to "Edit", edit_admin_media_review_path(media_review) %>
-      <%= link_to "Delete", admin_media_review_path(media_review), method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>
+    <h4><%= link_to media_review.headline, media_review.url %></h4>
 
     <p><em>Sentiment:</em> <%= format_media_review(media_review.sentiment) %></p>
 
     <p class="review-detail"><%= media_review.source %> review by <%= media_review.author %></p>
+
+    <% if current_user.admin? %>
+      <div class="review-modify-links">
+        <%= link_to "Edit", edit_admin_media_review_path(media_review) %>
+        <%= link_to "Delete", admin_media_review_path(media_review), method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
   </div>
 </div>

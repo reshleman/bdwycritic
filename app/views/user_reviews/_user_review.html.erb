@@ -1,19 +1,21 @@
-<div class="review">
+<div class="review user-review">
   <div class="review-image">
     <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
   </div>
   <div class="review-content">
-    <h1>Review by <%= user_review.user.email %></h1>
-
-    <% if current_user.admin? %>
-      <%= link_to "Edit", edit_admin_user_review_path(user_review) %>
-      <%= link_to "Delete", admin_user_review_path(user_review), method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>
+    <h4>Review by <%= user_review.user.email %></h4>
 
     <p><em>Rating:</em> <%= "⭑" * user_review.rating %></p>
 
     <p><%= user_review.body %></p>
 
     <p class="review-detail">Reviewed <%= time_ago_in_words user_review.created_at %> ago.</p>
+
+    <% if current_user.admin? %>
+      <div class="review-modify-links">
+        <%= link_to "Edit", edit_admin_user_review_path(user_review) %>
+        <%= link_to "Delete", admin_user_review_path(user_review), method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
   </div>
 </div>

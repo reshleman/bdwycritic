@@ -1,0 +1,36 @@
+.grid-items {
+  $grid-item-background: $base-background-color;
+  $grid-item-color: $base-font-color;
+
+  position: relative;
+  padding: 1.3em;
+
+  .grid-item {
+    background: $grid-item-background;
+    float: left;
+    padding: .5em;
+    padding-bottom: 1em;
+    margin: 0px;
+
+    h2, h3, h3 {
+      color: $grid-item-color;
+      margin-bottom: .4em;
+    }
+
+    h2 {
+      font-size: 2em;
+    }
+
+    h3 {
+      font-size: 1.6em;
+    }
+
+    h4 {
+      font-size: 1.3em;
+    }
+
+    p {
+      color: transparentize($grid-item-color, .3);
+    }
+  }
+}
