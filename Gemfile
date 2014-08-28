@@ -19,7 +19,6 @@ gem 'sass', '~> 3.3.14'
 gem 'bourbon', '~> 4.0.1'
 gem 'bitters', '~> 0.10.0'
 gem 'neat', '~> 1.7.0.pre'
-gem 'refills', '~> 0.0.2'
 
 group :develoment do
   gem 'spring'
