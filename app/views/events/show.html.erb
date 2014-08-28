@@ -24,11 +24,11 @@
 </div>
 
 <div class="grid-item reviews media-reviews">
-  <h3>Media Reviews</h3>
+  <h3>Critic Reviews</h3>
 
   <% if current_user.admin? %>
     <div class="review-new-link">
-      <%= link_to "Add a Media Review", new_admin_event_media_review_path(@event) %>
+      <%= link_to "Add a Critic Review", new_admin_event_media_review_path(@event) %>
     </div>
   <% end %>
 
