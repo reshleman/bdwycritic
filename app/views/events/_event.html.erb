@@ -1,5 +1,8 @@
-<div class="event">
-  <%= link_to event.name, event %> @ <%= event.venue %>
-  (<%= relative_closing_date_in_words(event.closing_date) %>)
+<div class="grid-item event">
+  <h4><%= link_to event.name, event %></h4>
+  <p class="venue">
+    <%= event.venue %>
+    (<%= relative_closing_date_in_words(event.closing_date) %>)
+  </p>
   <%= render "events/event_statistics", event: event %>
 </div>

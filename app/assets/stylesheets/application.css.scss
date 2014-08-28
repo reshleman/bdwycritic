@@ -4,9 +4,14 @@
 @import "refills/grid_items";
 @import "refills/navigation";
 @import "refills/review";
+@import "events";
 
 .container {
   @include outer-container;
+}
+
+.event {
+  @include span-columns(6);
 }
 
 .event-description {

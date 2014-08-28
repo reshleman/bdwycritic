@@ -6,7 +6,7 @@
   <div class="review-content">
     <h4><%= link_to media_review.headline, media_review.url %></h4>
 
-    <p><em>Sentiment:</em> <%= format_media_review(media_review.sentiment) %></p>
+    <p><em>Score:</em> <%= format_media_review(media_review.sentiment) %> / 100</p>
 
     <p class="review-detail"><%= media_review.source %> review by <%= media_review.author %></p>
 
