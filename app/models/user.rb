@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :reviewed_events, through: :user_reviews, source: :event
 
   validates :email, presence: true, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :password_digest, presence: true
 
   def can_review?(event)
