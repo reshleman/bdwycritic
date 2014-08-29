@@ -6,6 +6,6 @@ module UsersHelper
   private
 
   def initial(string)
-    string[0,1]
+    string[0]
   end
 end
