@@ -3,7 +3,7 @@
     <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
   </div>
   <div class="review-content">
-    <h4>Review by <%= user_review.user.email %></h4>
+    <h4>Review by <%= format_user_name(user_review.user) %></h4>
 
     <p><em>Rating:</em> <%= number_as_stars(user_review.rating) %></p>
 
