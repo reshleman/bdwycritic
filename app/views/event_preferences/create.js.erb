@@ -1,1 +1,1 @@
-$("#event-preferences").replaceWith("<%= escape_javascript(render "event_preferences/links", event: @event) %>");
+$("#event-preferences").replaceWith("<%=j render "event_preferences/links", event: @event %>");
