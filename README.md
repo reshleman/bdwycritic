@@ -2,13 +2,11 @@
 
 [BdwyCritic] is a review aggregator for Broadway shows (*à la* [Metacritic]), developed by [Robert Eshleman] as a capstone project for the [Metis] Ruby on Rails bootcamp.
 
-Check it out at [http://www.bdwycritic.com].
+Check it out at http://www.bdwycritic.com.
 
-(There's also a [Trello Board] full of user stories, if you're interested in that kind of thing.)
+## Description
 
-## What it Does
-
-BdwyCritic is a forum for theatergoers to view and post reviews about Broadway shows. Users can also view a list of reviews published by critics about each show.
+BdwyCritic provides a forum for theatergoers to view and post reviews about Broadway shows. Users can also view a list of reviews published by critics about each show.
 
 As an aggregator, BdwyCritic provides information about the popularity of shows based on both user-provided ratings and textual analyses of published critic reviews.
 
@@ -38,10 +36,14 @@ rake events:import
 
 This task imports the event name, description, closing date, and venue for any new events. In addition, it updates locally any events that have changed in the remote data source.
 
+## Development Resources
+
+There's a [Trello Board] full of user stories, if you're interested in that kind of thing.
+
 [BdwyCritic]: https://github.com/reshleman/bdwycritic
 [Metacritic]: http://www.metacritic.com/
 [Robert Eshleman]: https://github.com/reshleman
-[Metis]: https://thisismetis.com
+[Metis]: http://www.thisismetis.com
 [http://www.bdwycritic.com/]: http://www.bdwycritic.com/
 [Trello Board]: https://trello.com/b/ma8uIYeS
 [New York Times Event Listings API]: http://developer.nytimes.com/docs/events_api
