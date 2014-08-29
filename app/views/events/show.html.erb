@@ -1,6 +1,6 @@
 <div class="grid-item event-description">
   <h2><%= @event.name %></h2>
-  <p><%= @event.description %></p>
+  <p><%= @event.description %><%= description_credit(@event) %></p>
 </div>
 
 <div class="grid-item event-details">
