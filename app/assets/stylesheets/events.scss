@@ -16,3 +16,10 @@
   }
 }
 
+.event-statistics {
+  @include clearfix;
+
+  .review-score {
+    font-size: .8em;
+  }
+}
