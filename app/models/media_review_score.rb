@@ -5,10 +5,11 @@ class MediaReviewScore < ReviewScore
 
   def category
     case score
-    when 0.0 then nil
+    when 0.0 then :""
     when 0.0...40.0 then :negative
     when 40.0...60.0 then :neutral
     when 60.0..100.0 then :positive
+    else :""
     end
   end
 end
