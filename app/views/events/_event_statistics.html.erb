@@ -1,10 +1,10 @@
 <p>
   <em>Avg. User Review:</em>
-  <%= format_user_review(event.average_user_review) %> / 10
+  <%= format_user_review_score(event.average_user_review) %> / 10
   (<%= pluralize event.num_user_reviews, "review" %>)
 </p>
 <p>
   <em>Avg. Critic Review:</em>
-  <%= format_media_review(event.average_media_review) %> / 100
+  <%= format_media_review_score(event.average_media_review) %> / 100
   (<%= pluralize event.num_media_reviews, "review" %>)
 </p>

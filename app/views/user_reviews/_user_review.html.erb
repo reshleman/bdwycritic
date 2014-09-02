@@ -1,7 +1,5 @@
 <div class="review user-review">
-  <div class="review-score review-score-positive">
-    <%= user_review.rating %>
-  </div>
+  <%= user_review_score_block(user_review.rating) %>
 
   <div class="review-content">
     <h4>Review by <%= format_user_name(user_review.user) %></h4>

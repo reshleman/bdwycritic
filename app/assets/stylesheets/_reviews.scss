@@ -42,6 +42,7 @@
     height: $review-score-width;
     border-radius: $base-border-radius;
     padding: $review-score-padding;
+    background-color: $review-detail-color;
     display: block;
     max-width: none;
     text-align: center;
@@ -55,14 +56,17 @@
   }
 
   .review-score-positive {
+    @extend .review-score;
     background-color: $review-positive-color;
   }
 
   .review-score-neutral {
+    @extend .review-score;
     background-color: $review-neutral-color;
   }
 
   .review-score-negative {
+    @extend .review-score;
     background-color: $review-negative-color;
   }
 

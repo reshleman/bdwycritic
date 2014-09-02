@@ -1,7 +1,5 @@
 <div class="review">
-  <div class="review-score review-score-positive">
-    <%= format_media_review(media_review.sentiment) %>
-  </div>
+  <%= media_review_score_block(media_review.sentiment) %>
 
   <div class="review-content">
     <h4><%= link_to media_review.headline, media_review.url %></h4>
