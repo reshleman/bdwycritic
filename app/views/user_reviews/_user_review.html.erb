@@ -1,12 +1,10 @@
 <div class="review user-review">
   <div class="review-score review-score-positive">
-    9
+    <%= user_review.rating %>
   </div>
 
   <div class="review-content">
     <h4>Review by <%= format_user_name(user_review.user) %></h4>
-
-    <p><em>Rating:</em> <%= number_as_stars(user_review.rating) %></p>
 
     <p><%= user_review.body %></p>
 
