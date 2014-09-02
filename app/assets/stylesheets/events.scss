@@ -1,6 +1,5 @@
 .events {
   @include clearfix;
-  line-height: 1em;
 
   .event {
     padding-bottom: 0;
@@ -20,6 +19,12 @@
   @include clearfix;
 
   .review-score {
-    font-size: .8em;
+    padding-top: 0;
+    font-size: 1.2em;
+
+    .review-score-caption {
+      font-size: .6em;
+      font-weight: normal;
+    }
   }
 }

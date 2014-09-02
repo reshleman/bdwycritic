@@ -1,22 +1,38 @@
 module ReviewsHelper
+  def captioned_user_review_score_block(score, num_reviews)
+    converted_score = format_user_review_score(score)
+
+    content_tag :div, class: user_review_css_class(converted_score) do
+      review_score_caption("Users") +
+      converted_score +
+      num_reviews_caption(num_reviews)
+    end
+  end
+
+  def captioned_media_review_score_block(score, num_reviews)
+    converted_score = format_media_review_score(score)
+
+    content_tag :div, class: media_review_css_class(converted_score) do
+      review_score_caption("Critics") +
+      converted_score +
+      num_reviews_caption(num_reviews)
+    end
+  end
+
   def user_review_score_block(score)
     converted_score = format_user_review_score(score)
 
-    content_tag(
-      :div,
-      converted_score,
-      class: user_review_css_class(converted_score)
-    )
+    content_tag :div, class: user_review_css_class(converted_score) do
+      converted_score
+    end
   end
 
-  def media_review_score_block(score)
+  def media_review_score_block(score, num_reviews = nil)
     converted_score = format_media_review_score(score)
 
-    content_tag(
-      :div,
-      converted_score,
-      class: media_review_css_class(converted_score)
-    )
+    content_tag :div, class: media_review_css_class(converted_score) do
+      converted_score
+    end
   end
 
   def format_media_review_score(score)
@@ -50,5 +66,13 @@ module ReviewsHelper
 
   def format_review_score(score)
     number_with_precision(score, precision: 1, strip_insignificant_zeros: true)
+  end
+
+  def num_reviews_caption(num_reviews)
+    review_score_caption(pluralize(num_reviews, "Review"))
+  end
+
+  def review_score_caption(text)
+    content_tag(:div, text, class: "review-score-caption")
   end
 end
