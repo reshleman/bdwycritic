@@ -1,10 +1,17 @@
 module ReviewsHelper
   def user_review_score_block(score)
-    content_tag(:div, score, class: user_review_css_class(score))
+    converted_score = format_user_review_score(score)
+
+    content_tag(
+      :div,
+      converted_score,
+      class: user_review_css_class(converted_score)
+    )
   end
 
   def media_review_score_block(score)
     converted_score = format_media_review_score(score)
+
     content_tag(
       :div,
       converted_score,
@@ -24,7 +31,7 @@ module ReviewsHelper
   private
 
   def user_review_css_class(score)
-    case score
+    case score.to_f
     when 0.0...4.0 then "review-score-negative"
     when 4.0...7.0 then "review-score-neutral"
     when 7.0..10.0 then "review-score-positive"
@@ -33,7 +40,7 @@ module ReviewsHelper
   end
 
   def media_review_css_class(score)
-    case score
+    case score.to_f
     when 0.0...40.0 then "review-score-negative"
     when 40.0...60.0 then "review-score-neutral"
     when 60.0..100.0 then "review-score-positive"
@@ -42,6 +49,6 @@ module ReviewsHelper
   end
 
   def format_review_score(score)
-    score.round(1)
+    number_with_precision(score, precision: 1, strip_insignificant_zeros: true)
   end
 end
