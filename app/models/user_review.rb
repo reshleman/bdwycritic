@@ -8,7 +8,7 @@ class UserReview < ActiveRecord::Base
     presence: true,
     numericality: {
       only_integer: true,
-      greater_than_or_equal_to: 0,
+      greater_than_or_equal_to: 1,
       less_than_or_equal_to: 10
     }
   validates :user,
@@ -17,4 +17,8 @@ class UserReview < ActiveRecord::Base
       scope: :event,
       message: "can only review an event once"
     }
+
+  def score
+    @score ||= UserReviewScore.new(rating)
+  end
 end

@@ -32,4 +32,12 @@ class Event < ActiveRecord::Base
   def nyt_date_older_than?(date)
     nyt_updated_at < date
   end
+
+  def average_user_review_score
+    @average_user_review_score ||= UserReviewScore.new(average_user_review)
+  end
+
+  def average_media_review_score
+    @average_media_review_score ||= MediaReviewScore.new(average_media_review)
+  end
 end

@@ -2,7 +2,7 @@
 
 <div>
   <%= form.label :rating %>
-  <%= form.select :rating, options_for_select(0..10, form.object.rating) %>
+  <%= form.select :rating, options_for_select(1..10, form.object.rating) %>
 </div>
 <div>
   <%= form.label :body %>

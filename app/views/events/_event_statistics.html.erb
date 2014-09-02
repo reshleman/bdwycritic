@@ -1,5 +1,5 @@
 <div class="event-statistics">
-  <%= captioned_user_review_score_block(event.average_user_review, event.num_user_reviews) %>
+  <%= captioned_review_score_block(event.average_user_review_score, event.num_user_reviews, "Users") %>
 
-  <%= captioned_media_review_score_block(event.average_media_review, event.num_media_reviews) %>
+  <%= captioned_review_score_block(event.average_media_review_score, event.num_media_reviews, "Critics") %>
 </div>
