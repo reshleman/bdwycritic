@@ -1,0 +1,38 @@
+$review-score-gutter: .5em;
+$review-score-padding: .8em;
+$review-score-width: 3.2em;
+$review-score-positive-color: $light-green;
+$review-score-neutral-color: $light-yellow;
+$review-score-negative-color: $light-red;
+$review-score-default-color: transparentize($base-font-color, .4);
+
+.review-score {
+  font-size: 1.4em;
+  width: $review-score-width;
+  height: $review-score-width;
+  margin-right: $review-score-gutter;
+  margin-bottom: $review-score-gutter;
+  border-radius: $base-border-radius;
+  padding: $review-score-padding 0;
+  background-color: $review-score-default-color;
+  display: block;
+  max-width: none;
+  text-align: center;
+  font-weight: bold;
+  float: left;
+}
+
+.review-score-positive {
+  @extend .review-score;
+  background-color: $review-score-positive-color;
+}
+
+.review-score-neutral {
+  @extend .review-score;
+  background-color: $review-score-neutral-color;
+}
+
+.review-score-negative {
+  @extend .review-score;
+  background-color: $review-score-negative-color;
+}

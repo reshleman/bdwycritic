@@ -1,11 +1,8 @@
 <div class="review user-review">
-  <div class="review-image">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
-  </div>
+  <%= user_review_score_block(user_review.rating) %>
+
   <div class="review-content">
     <h4>Review by <%= format_user_name(user_review.user) %></h4>
-
-    <p><em>Rating:</em> <%= number_as_stars(user_review.rating) %></p>
 
     <p><%= user_review.body %></p>
 

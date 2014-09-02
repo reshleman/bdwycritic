@@ -12,42 +12,18 @@
 }
 
 .review {
-  $review-gutter: .7em;
-  $review-image-padding: .7em;
-  $review-image-width: 4em;
+  $review-gutter: .5em;
   $review-color: $base-font-color;
-  $review-background: lighten($base-accent-color, 15);
   $review-detail-color: transparentize($review-color, .5);
-  $review-image-vert-alignment: top;
 
   display: table;
   width: 100%;
-  margin-bottom: $base-line-height;
+  margin-bottom: $review-gutter;
   border-bottom: 1px solid transparentize($review-color, .9);
 
-  .review-image,
   .review-content {
     display: table-cell;
-    vertical-align: $review-image-vert-alignment;
-  }
-
-  .review-image {
-    padding-right: $review-gutter;
-
-    > img {
-      width: $review-image-width;
-      height: auto;
-      border-radius: $base-border-radius;
-      padding: $review-image-padding;
-      background: $review-background;
-      display: block;
-      max-width: none;
-    }
-
-    .review-reverse-order & {
-      padding-right: 0;
-      padding-left: 10px;
-    }
+    vertical-align: top;
   }
 
   .review-content {
@@ -63,7 +39,7 @@
     }
 
     p {
-      margin-bottom: .4em;
+      margin-bottom: .2em;
       text-align: justify;
     }
 
@@ -72,6 +48,7 @@
       font-size: .9em;
       color: $review-detail-color;
       display: inline-block;
+      margin-bottom: $review-gutter;
     }
   }
 }
