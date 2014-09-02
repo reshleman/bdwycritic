@@ -79,7 +79,7 @@
     }
 
     p {
-      margin-bottom: $review-gutter;
+      margin-bottom: .2em;
       text-align: justify;
     }
 
@@ -88,6 +88,7 @@
       font-size: .9em;
       color: $review-detail-color;
       display: inline-block;
+      margin-bottom: $review-gutter;
     }
   }
 }
