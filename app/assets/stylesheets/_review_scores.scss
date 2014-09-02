@@ -22,17 +22,17 @@ $review-score-default-color: transparentize($base-font-color, .4);
   float: left;
 }
 
-.review-score-positive {
+.review-score.positive {
   @extend .review-score;
   background-color: $review-score-positive-color;
 }
 
-.review-score-neutral {
+.review-score.neutral {
   @extend .review-score;
   background-color: $review-score-neutral-color;
 }
 
-.review-score-negative {
+.review-score.negative {
   @extend .review-score;
   background-color: $review-score-negative-color;
 }

@@ -7,6 +7,6 @@ class MediaReview < ActiveRecord::Base
   validates :url, presence: true
 
   def score
-    @score ||= MediaReviewScore.new(rating)
+    @score ||= MediaReviewScore.new(sentiment)
   end
 end
