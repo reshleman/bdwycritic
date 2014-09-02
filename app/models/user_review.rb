@@ -17,4 +17,8 @@ class UserReview < ActiveRecord::Base
       scope: :event,
       message: "can only review an event once"
     }
+
+  def score
+    @score ||= UserReviewScore.new(rating)
+  end
 end
