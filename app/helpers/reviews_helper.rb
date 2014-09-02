@@ -27,7 +27,7 @@ module ReviewsHelper
     end
   end
 
-  def media_review_score_block(score, num_reviews = nil)
+  def media_review_score_block(score)
     converted_score = format_media_review_score(score)
 
     content_tag :div, class: media_review_css_class(converted_score) do
