@@ -12,42 +12,58 @@
 }
 
 .review {
-  $review-gutter: .7em;
-  $review-image-padding: .7em;
-  $review-image-width: 4em;
+  $review-gutter: .5em;
+  $review-score-padding: .7em;
+  $review-score-width: 3.2em;
+  $review-score-vert-alignment: top;
+
   $review-color: $base-font-color;
   $review-background: lighten($base-accent-color, 15);
   $review-detail-color: transparentize($review-color, .5);
-  $review-image-vert-alignment: top;
+  $review-positive-color: $light-green;
+  $review-neutral-color: $light-yellow;
+  $review-negative-color: $light-red;
 
   display: table;
   width: 100%;
-  margin-bottom: $base-line-height;
+  margin-bottom: $review-gutter;
   border-bottom: 1px solid transparentize($review-color, .9);
 
-  .review-image,
+  .review-score,
   .review-content {
     display: table-cell;
-    vertical-align: $review-image-vert-alignment;
+    vertical-align: $review-score-vert-alignment;
   }
 
-  .review-image {
-    padding-right: $review-gutter;
-
-    > img {
-      width: $review-image-width;
-      height: auto;
-      border-radius: $base-border-radius;
-      padding: $review-image-padding;
-      background: $review-background;
-      display: block;
-      max-width: none;
-    }
+  .review-score {
+    margin-right: $review-gutter;
+    margin-bottom: $review-gutter;
+    width: $review-score-width;
+    height: $review-score-width;
+    border-radius: $base-border-radius;
+    padding: $review-score-padding;
+    display: block;
+    max-width: none;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
 
     .review-reverse-order & {
       padding-right: 0;
       padding-left: 10px;
     }
+  }
+
+  .review-score-positive {
+    background-color: $review-positive-color;
+  }
+
+  .review-score-neutral {
+    background-color: $review-neutral-color;
+  }
+
+  .review-score-negative {
+    background-color: $review-negative-color;
   }
 
   .review-content {
@@ -63,7 +79,7 @@
     }
 
     p {
-      margin-bottom: .4em;
+      margin-bottom: $review-gutter;
       text-align: justify;
     }
 

@@ -1,12 +1,10 @@
 <div class="review">
-  <div class="review-image">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+  <div class="review-score review-score-positive">
+    94.5
   </div>
 
   <div class="review-content">
     <h4><%= link_to media_review.headline, media_review.url %></h4>
-
-    <p><em>Score:</em> <%= format_media_review(media_review.sentiment) %> / 100</p>
 
     <p class="review-detail"><%= media_review.source %> review by <%= media_review.author %></p>
 
