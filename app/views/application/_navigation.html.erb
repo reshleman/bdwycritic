@@ -6,8 +6,8 @@
     <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
     <div class="nav">
       <ul id="navigation-menu">
-        <li class="nav-link"><%= link_to "Home", root_path %></li>
-        <li class="nav-link"><%= link_to "All Events", events_path %></li>
+        <li class="nav-link"><%= link_to "Current Events", current_events_path %></li>
+        <li class="nav-link"><%= link_to "Recently Closed", closed_events_path %></li>
         <% if current_user.admin? %>
           <li class="nav-link"><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
         <% end %>
