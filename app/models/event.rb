@@ -29,6 +29,12 @@ class Event < ActiveRecord::Base
     group("events.id")
   end
 
+  def self.with_review_statistics_by_average_media_review
+    with_review_statistics.
+    having("AVG(media_reviews.sentiment) IS NOT NULL").
+    order("average_media_review DESC")
+  end
+
   def nyt_date_older_than?(date)
     nyt_updated_at < date
   end

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     collection do
       get "current" => "current_events_dashboard#show"
       get "closed" => "closed_events_dashboard#show"
+      get "top_critic" => "top_media_events_dashboard#show"
     end
   end
 
