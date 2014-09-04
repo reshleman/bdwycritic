@@ -1,5 +1,5 @@
 class MediaReview < ActiveRecord::Base
-  belongs_to :event
+  belongs_to :event, counter_cache: :num_media_reviews
 
   validates :event, presence: true
   validates :headline, presence: true

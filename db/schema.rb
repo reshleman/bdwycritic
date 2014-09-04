@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829175123) do
+ActiveRecord::Schema.define(version: 20140904191344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140829175123) do
   add_index "event_preferences", ["user_id"], name: "index_event_preferences_on_user_id", using: :btree
 
   create_table "events", force: true do |t|
-    t.string   "name",           null: false
+    t.string   "name",                          null: false
     t.string   "venue"
     t.text     "description"
     t.date     "closing_date"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20140829175123) do
     t.datetime "updated_at"
     t.integer  "nyt_event_id"
     t.datetime "nyt_updated_at"
+    t.integer  "num_user_reviews",  default: 0
+    t.integer  "num_media_reviews", default: 0
   end
 
   create_table "media_reviews", force: true do |t|

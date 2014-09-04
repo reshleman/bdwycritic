@@ -1,6 +1,6 @@
 class UserReview < ActiveRecord::Base
   belongs_to :user
-  belongs_to :event
+  belongs_to :event, counter_cache: :num_user_reviews
 
   validates :body, presence: true
   validates :event, presence: true
