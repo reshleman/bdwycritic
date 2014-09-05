@@ -25,11 +25,7 @@ class Event < ActiveRecord::Base
     where("name ILIKE ?", "%#{event_name}%")
   end
 
-  def self.with_review_statistics
-    all
-  end
-
-  def self.with_review_statistics_by_average_media_review
+  def self.by_average_media_review
     joins(:review_statistics_summary).
     where("average_media_review IS NOT NULL").
     order("average_media_review DESC")
