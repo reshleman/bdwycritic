@@ -1,17 +1,35 @@
 <header class="navigation">
   <div class="menu-wrapper">
-    <%= link_to root_path, class: "logo" do %>
-      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
-    <% end %>
     <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
     <div class="nav">
       <ul id="navigation-menu">
-        <li class="nav-link"><%= link_to "Current Events", current_events_path %></li>
-        <li class="nav-link"><%= link_to "Recently Closed", closed_events_path %></li>
-        <li class="nav-link"><%= link_to "Theatergoers Love", top_user_events_path %></li>
-        <li class="nav-link"><%= link_to "Critics Recommend", top_critic_events_path %></li>
+        <li class="nav-link logo">
+          <%= link_to "BdwyCritic", root_path %>
+        </li>
+        <li class="nav-link more"><a href="javascript:void(0)">Events</a>
+          <ul class="submenu">
+            <li class="nav-link">
+              <%= link_to "Current Events", current_events_path %>
+            </li>
+            <li class="nav-link">
+              <%= link_to "Recently Closed", closed_events_path %>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-link more"><a href="javascript:void(0)">Popular</a>
+          <ul class="submenu">
+            <li class="nav-link">
+              <%= link_to "Theatergoers Love", top_user_events_path %>
+            </li>
+            <li class="nav-link">
+              <%= link_to "Critics Recommend", top_critic_events_path %>
+            </li>
+          </ul>
+        </li>
         <% if current_user.admin? %>
-          <li class="nav-link"><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+          <li class="nav-link">
+            <%= link_to "Admin Dashboard", admin_dashboard_path %>
+          </li>
         <% end %>
       </ul>
     </div>
