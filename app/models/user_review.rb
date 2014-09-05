@@ -18,6 +18,8 @@ class UserReview < ActiveRecord::Base
       message: "can only review an event once"
     }
 
+  default_scope { order(created_at: :desc) }
+
   def score
     @score ||= UserReviewScore.new(rating)
   end

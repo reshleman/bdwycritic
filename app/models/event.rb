@@ -27,16 +27,24 @@ class Event < ActiveRecord::Base
     where("name ILIKE ?", "%#{event_name}%")
   end
 
+  def self.by_name
+    order(name: :asc)
+  end
+
+  def self.by_closing_date
+    order(closing_date: :desc, name: :asc)
+  end
+
   def self.by_average_media_review
     joins(:review_statistics_summary).
     where("average_media_review IS NOT NULL").
-    order("average_media_review DESC")
+    order("average_media_review DESC, name ASC")
   end
 
   def self.by_average_user_review
     joins(:review_statistics_summary).
     where("average_user_review IS NOT NULL").
-    order("average_user_review DESC")
+    order("average_user_review DESC, name ASC")
   end
 
   def nyt_date_older_than?(date)

@@ -6,6 +6,8 @@ class MediaReview < ActiveRecord::Base
   validates :source, presence: true
   validates :url, presence: true
 
+  default_scope { order(created_at: :desc) }
+
   def score
     @score ||= MediaReviewScore.new(sentiment)
   end
