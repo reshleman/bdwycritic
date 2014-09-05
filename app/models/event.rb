@@ -33,6 +33,12 @@ class Event < ActiveRecord::Base
     order("average_media_review DESC")
   end
 
+  def self.by_average_user_review
+    joins(:review_statistics_summary).
+    where("average_user_review IS NOT NULL").
+    order("average_user_review DESC")
+  end
+
   def nyt_date_older_than?(date)
     nyt_updated_at < date
   end
