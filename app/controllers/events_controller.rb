@@ -3,7 +3,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.
-      with_review_statistics.
       includes(user_reviews: :user).
       find(params[:id])
   end
