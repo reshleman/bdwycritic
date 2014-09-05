@@ -36,6 +36,10 @@ rake events:import
 
 This task imports the event name, description, closing date, and venue for any new events. In addition, it updates locally any events that have changed in the remote data source.
 
+## Analytics
+
+[Google Analytics] can be configured by setting the `GOOGLE_ANALYTICS_ID` ENV variable with your Google-provided tracking ID.
+
 ## Development Resources
 
 There's a [Trello Board] full of user stories, if you're interested in that kind of thing.
@@ -45,6 +49,7 @@ There's a [Trello Board] full of user stories, if you're interested in that kind
 [Robert Eshleman]: https://github.com/reshleman
 [Metis]: http://www.thisismetis.com
 [http://www.bdwycritic.com/]: http://www.bdwycritic.com/
+[Google Analytics]: https://www.google.com/analytics/web/
 [Trello Board]: https://trello.com/b/ma8uIYeS
 [New York Times Event Listings API]: http://developer.nytimes.com/docs/events_api
 [AlchemyLanguage API]: http://www.alchemyapi.com/products/alchemylanguage/
