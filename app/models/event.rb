@@ -7,7 +7,9 @@ class Event < ActiveRecord::Base
   validates :name, presence: true
   validates :nyt_event_id, uniqueness: true, allow_blank: true
 
-  delegate :average_user_review, :average_media_review, to: :review_statistics_summary
+  delegate :average_user_review,
+    :average_media_review,
+    to: :review_statistics_summary
 
   def self.default_scope
     includes(:review_statistics_summary)
