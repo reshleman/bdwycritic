@@ -1,17 +1,8 @@
-require "monban/constraints/signed_in"
-require "monban/constraints/signed_out"
-
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
 
-  constraints Monban::Constraints::SignedIn.new do
-    root "current_events_dashboard#show", as: :dashboard
-  end
-
-  constraints Monban::Constraints::SignedOut.new do
-    root "sessions#new"
-  end
+  root "current_events_dashboard#show"
 
   resources :events, only: [:show] do
     resources :user_reviews, only: [:new, :create]
