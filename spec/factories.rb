@@ -5,7 +5,7 @@ FactoryGirl.define do
     email "hugh@jackman.com"
     password_digest "password"
 
-    factory :admin_user do
+    trait :admin do
       admin true
     end
   end

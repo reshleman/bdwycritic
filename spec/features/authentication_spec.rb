@@ -13,13 +13,13 @@ feature "User signs up" do
     click_button "Sign up"
 
     expect_user_to_be_signed_in
-    expect_user_to_not_be_admin
+    expect_user_not_to_be_admin
   end
 end
 
 feature "User signs in" do
   scenario "as an admin with valid credentials" do
-    admin_user = create(:admin_user)
+    admin_user = create(:user, :admin)
     visit_sign_in_page
 
     user_signs_in_as(admin_user.email, admin_user.password_digest)
@@ -35,7 +35,7 @@ feature "User signs in" do
     user_signs_in_as(user.email, user.password_digest)
 
     expect_user_to_be_signed_in
-    expect_user_to_not_be_admin
+    expect_user_not_to_be_admin
   end
 
   scenario "with invalid credentials" do
@@ -44,7 +44,7 @@ feature "User signs in" do
 
     user_signs_in_as(user.email, user.password_digest + "incorrect")
 
-    expect_user_to_not_be_signed_in
+    expect_user_not_to_be_signed_in
   end
 end
 
@@ -63,20 +63,20 @@ end
 
 def expect_user_to_be_signed_in
   expect(page).to have_content "Sign out"
-  expect(page).to_not have_content "Sign in"
-  expect(page).to_not have_content "Sign up"
+  expect(page).not_to have_content "Sign in"
+  expect(page).not_to have_content "Sign up"
 end
 
-def expect_user_to_not_be_signed_in
+def expect_user_not_to_be_signed_in
   expect(page).to have_content "Sign in"
   expect(page).to have_content "Sign up"
-  expect(page).to_not have_content "Sign out"
+  expect(page).not_to have_content "Sign out"
 end
 
 def expect_user_to_be_admin
   expect(page).to have_content "Admin"
 end
 
-def expect_user_to_not_be_admin
-  expect(page).to_not have_content "Admin"
+def expect_user_not_to_be_admin
+  expect(page).not_to have_content "Admin"
 end
