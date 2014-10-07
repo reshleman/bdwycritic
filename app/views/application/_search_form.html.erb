@@ -2,7 +2,7 @@
   <%= label_tag :event_name %>
   <%= search_field_tag :event_name, nil, placeholder: "Enter Search" %>
 
-  <%= button_tag(name: nil) do %>
+  <%= button_tag(class: "submit", name: nil) do %>
     <%= image_tag "https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png", alt:"Search" %>
   <% end %>
 <% end %>
