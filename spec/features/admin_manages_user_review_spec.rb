@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Admin manages a user review for an event" do
-  before :each do
+  before do
     @event = create(:event_with_user_reviews, user_review_count: 1)
     @admin = create(:user, :admin)
     @user_review = @event.user_reviews.first
@@ -15,11 +15,7 @@ feature "Admin manages a user review for an event" do
     select(new_rating, from: "Rating")
     click_update_button
 
-    expect_user_review_to_have_been_updated(
-      selector: ".review-score",
-      old_value: @user_review.score,
-      new_value: new_rating
-    )
+    expect_user_review_score_to_update_from(@user_review.score, new_rating)
   end
 
   scenario "by editing the review body" do
@@ -30,16 +26,12 @@ feature "Admin manages a user review for an event" do
     fill_in "Body", with: new_body
     click_update_button
 
-    expect_user_review_to_have_been_updated(
-      selector: ".review-content",
-      old_value: @user_review.body,
-      new_value: new_body
-    )
+    expect_user_review_body_to_update_from(@user_review.body, new_body)
   end
 
   scenario "by deleting the user review" do
     visit_event_as_admin
-    within(".user-review") { click_link "Delete" }
+    find(".user-review").click_link("Delete")
 
     expect(page).not_to have_css(".user-review")
   end
@@ -49,15 +41,28 @@ feature "Admin manages a user review for an event" do
   end
 
   def click_edit_link
-    within(".user-review") { click_link "Edit" }
+    find(".user-review").click_link("Edit")
   end
 
   def click_update_button
     click_button "Update Review"
   end
 
-  def expect_user_review_to_have_been_updated(selector:, old_value:, new_value:)
-    expect(page).not_to have_css(".user-review #{selector}", text: old_value)
-    expect(page).to have_css(".user-review #{selector}", text: new_value)
+  def expect_user_review_score_to_update_from(old_value, new_value)
+    expect(page).not_to have_user_review_score(old_value)
+    expect(page).to have_user_review_score(new_value)
+  end
+
+  def expect_user_review_body_to_update_from(old_value, new_value)
+    expect(page).not_to have_user_review_body(old_value)
+    expect(page).to have_user_review_body(new_value)
+  end
+
+  def have_user_review_score(score)
+    have_css(".user-review .review-score", text: score)
+  end
+
+  def have_user_review_body(text)
+    have_css(".user-review .review-content", text: text)
   end
 end

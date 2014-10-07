@@ -37,6 +37,5 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # Monban Backdoor
   config.middleware.insert_after Warden::Manager, Monban::BackDoor
 end
