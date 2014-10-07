@@ -2,17 +2,14 @@ require "rails_helper"
 
 feature "Guest views event" do
   scenario "and sees event summary information" do
-    event = create(:event)
+    event = create(:event, :without_closing_date)
 
     visit event_path(event)
 
     expect(page).to have_css ".event-description", text: event.name
     expect(page).to have_css ".event-description", text: event.description
     expect(page).to have_css ".event-details", text: event.venue
-    expect(page).to have_css(
-      ".event-details",
-      text: event.closing_date.to_formatted_s(:long)
-    )
+    expect(page).to have_css(".event-details", text: "Open run")
   end
 
   scenario "and sees media reviews for that event" do

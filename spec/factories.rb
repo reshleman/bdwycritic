@@ -4,10 +4,10 @@ FactoryGirl.define do
   end
 
   factory :event do
-    closing_date "1947-05-24"
     description "Carousel is the second musical by Rodgers and Hammerstein."
     name "Carousel"
     venue "Majestic Theatre"
+    without_closing_date
 
     factory :event_with_media_reviews do
       ignore { media_review_count 2 }
@@ -31,6 +31,18 @@ FactoryGirl.define do
           event: instance
         )
       end
+    end
+
+    trait :closed do
+      closing_date { 1.day.ago }
+    end
+
+    trait :open do
+      closing_date { 1.day.from_now }
+    end
+
+    trait :without_closing_date do
+      closing_date nil
     end
   end
 

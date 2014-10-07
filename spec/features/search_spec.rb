@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Guest searches for an event" do
   scenario "and sees current events with a matching name" do
-    event = create(:event, closing_date: 1.day.from_now)
+    event = create(:event, :open)
 
     search_for(event.name)
 
@@ -10,7 +10,7 @@ feature "Guest searches for an event" do
   end
 
   scenario "and does not see closed events with a matching name" do
-    event = create(:event, closing_date: 1.day.ago)
+    event = create(:event, :closed)
 
     search_for(event.name)
 
