@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   has_many :event_preferences
   has_many :user_reviews, dependent: :destroy
   has_many :media_reviews, dependent: :destroy
-  has_one :review_statistics_summary, foreign_key: :event_id
+  has_one :review_statistics_summary
 
   validates :name, presence: true
   validates :nyt_event_id, uniqueness: true, allow_blank: true
