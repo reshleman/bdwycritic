@@ -23,4 +23,8 @@ class UserReview < ActiveRecord::Base
   def score
     @score ||= UserReviewScore.new(rating)
   end
+
+  def created_by?(user)
+    user_id == user.id
+  end
 end

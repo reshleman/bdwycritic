@@ -1,4 +1,4 @@
-class Admin::UserReviewsController < ApplicationController
+class Admin::UserReviewsController < AdminController
   def edit
     @user_review = find_user_review
   end

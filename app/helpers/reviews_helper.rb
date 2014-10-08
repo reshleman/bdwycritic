@@ -11,8 +11,14 @@ module ReviewsHelper
     content_tag :div, score, class: review_score_css_class(score)
   end
 
-  def review_score_block(score)
-    content_tag :div, score, class: review_score_css_class(score)
+  def review_modify_links_for(user_review)
+    content_tag :div, class: "review-modify-links" do
+      if current_user.admin?
+        admin_modify_links_for(user_review)
+      elsif user_review.created_by?(current_user)
+        creator_modify_links_for(user_review)
+      end
+    end
   end
 
   private
@@ -27,5 +33,19 @@ module ReviewsHelper
 
   def review_score_caption(text)
     content_tag(:div, text, class: "review-score-caption")
+  end
+
+  def admin_modify_links_for(user_review)
+    link_to("Edit", edit_admin_user_review_path(user_review)) +
+    link_to(
+      "Delete",
+      admin_user_review_path(user_review),
+      method: :delete,
+      data: { confirm: "Are you sure?" }
+    )
+  end
+
+  def creator_modify_links_for(user_review)
+    link_to "Edit", edit_user_review_path(user_review)
   end
 end
