@@ -2,8 +2,8 @@
 
 <h3>Edit a Review</h3>
 
-<%= form_for [:admin, @user_review] do |form| %>
-  <%= render "user_reviews/user_review_form", form: form %>
+<%= form_for @user_review do |form| %>
+  <%= render "user_review_form", form: form %>
 
   <div>
     <%= form.submit "Update Review" %>

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   root "current_events_dashboard#show"
 
-  resources :events, only: [:show] do
-    resources :user_reviews, only: [:new, :create]
+  resources :events, only: [:show], shallow: true do
+    resources :user_reviews, only: [:new, :create, :edit, :update]
     resources :event_preferences, only: [:create], as: :preferences
 
     collection do

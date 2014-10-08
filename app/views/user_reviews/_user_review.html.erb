@@ -8,11 +8,6 @@
 
     <p class="review-detail">Reviewed <%= time_ago_in_words user_review.created_at %> ago.</p>
 
-    <% if current_user.admin? %>
-      <div class="review-modify-links">
-        <%= link_to "Edit", edit_admin_user_review_path(user_review) %>
-        <%= link_to "Delete", admin_user_review_path(user_review), method: :delete, data: { confirm: "Are you sure?" } %>
-      </div>
-    <% end %>
+    <%= edit_links_for(user_review) %>
   </div>
 </div>
