@@ -1,0 +1,17 @@
+.flash-messages {
+  .alert {
+    @extend %flash-alert;
+  }
+
+  .error {
+    @extend %flash-error;
+  }
+
+  .notice {
+    @extend %flash-notice;
+  }
+
+  .success {
+    @extend %flash-success;
+  }
+}
