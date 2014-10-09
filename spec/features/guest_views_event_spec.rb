@@ -9,7 +9,7 @@ feature "Guest views event" do
     expect(page).to have_css ".event-description", text: event.name
     expect(page).to have_css ".event-description", text: event.description
     expect(page).to have_css ".event-details", text: event.venue
-    expect(page).to have_css(".event-details", text: "Open run")
+    expect(page).to have_css ".event-details", text: "Open run"
   end
 
   scenario "and sees media reviews for that event" do
@@ -43,16 +43,8 @@ feature "Guest views event" do
 
     visit event_path(event)
 
-    expect(page).to have_css(
-      ".user-review",
-      text: user_review.score,
-      count: num_user_reviews
-    )
-    expect(page).to have_css(
-      ".user-review",
-      text: user_review.body,
-      count: num_user_reviews
-    )
+    expect(page).to have_user_review_score(user_review.score, num_user_reviews)
+    expect(page).to have_user_review_body(user_review.body, num_user_reviews)
   end
 
   scenario "and does not see reviews for other events" do
@@ -62,7 +54,7 @@ feature "Guest views event" do
 
     visit event_path(event)
 
-    expect(page).not_to have_text user_review.body
+    expect(page).not_to have_user_review_body(user_review.body)
     expect(page).not_to have_text media_review.headline
   end
 end

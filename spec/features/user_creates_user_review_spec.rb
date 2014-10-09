@@ -13,15 +13,6 @@ feature "User creates a user review for an event" do
     click_button "Add your Review"
 
     expect(page).to have_user_review_score(user_review.score)
-    expect(page).to have_user_review_content(user_review.body)
-    expect(page).to have_user_review_content(user.first_name)
-  end
-
-  def have_user_review_score(score)
-    have_css(".user-review .review-score", text: score)
-  end
-
-  def have_user_review_content(text)
-    have_css(".user-review .review-content", text: text)
+    expect(page).to have_user_review_body(user_review.body)
   end
 end

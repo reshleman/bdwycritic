@@ -16,8 +16,9 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include FactoryGirl::Syntax::Methods
-
   config.include Monban::Test::ControllerHelpers, type: :controller
+  config.include UserReviewHelpers, type: :feature
+
   config.after do
     Monban.test_reset!
   end
