@@ -11,12 +11,12 @@ module ReviewsHelper
     content_tag :div, score, class: review_score_css_class(score)
   end
 
-  def review_modify_links_for(user_review)
+  def edit_links_for(user_review)
     content_tag :div, class: "review-modify-links" do
       if current_user.admin?
-        admin_modify_links_for(user_review)
+        admin_edit_links_for(user_review)
       elsif user_review.created_by?(current_user)
-        creator_modify_links_for(user_review)
+        creator_edit_links_for(user_review)
       end
     end
   end
@@ -35,7 +35,7 @@ module ReviewsHelper
     content_tag(:div, text, class: "review-score-caption")
   end
 
-  def admin_modify_links_for(user_review)
+  def admin_edit_links_for(user_review)
     link_to("Edit", edit_admin_user_review_path(user_review)) +
     link_to(
       "Delete",
@@ -45,7 +45,7 @@ module ReviewsHelper
     )
   end
 
-  def creator_modify_links_for(user_review)
+  def creator_edit_links_for(user_review)
     link_to "Edit", edit_user_review_path(user_review)
   end
 end

@@ -41,7 +41,7 @@ class UserReviewsController < ApplicationController
   end
 
   def find_event
-    Event.find(params[:event_id])
+    @event ||= Event.find(params[:event_id])
   end
 
   def find_user_review
@@ -53,6 +53,6 @@ class UserReviewsController < ApplicationController
   end
 
   def user_review_params_with_event
-    user_review_params.merge(event_id: @event.id)
+    user_review_params.merge(event_id: find_event.id)
   end
 end

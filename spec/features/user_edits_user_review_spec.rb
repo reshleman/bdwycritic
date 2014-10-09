@@ -11,7 +11,7 @@ feature "User can edit a user review from an event page" do
     new_rating = user_review.rating - 1
     new_body = "Changed review text."
 
-    visit_event_as_user
+    visit_event
     find(".user-review").click_link("Edit")
     select(new_rating, from: "Rating")
     fill_in "Body", with: new_body
@@ -25,13 +25,13 @@ feature "User can edit a user review from an event page" do
     other_user = create(:user)
     user_review = create(:user_review, event: @event, user: other_user)
 
-    visit_event_as_user
+    visit_event
 
     expect(page).to have_content(user_review.body)
     expect(page).not_to have_css(".user-review", text: "Edit")
   end
 
-  def visit_event_as_user
+  def visit_event
     visit event_path(@event, as: @user)
   end
 
