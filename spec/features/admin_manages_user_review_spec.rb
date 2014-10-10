@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Admin manages a user review for an event" do
   before do
-    @event = create(:event_with_user_reviews, user_review_count: 1)
+    @event = create(:event, :with_user_reviews, user_review_count: 1)
     @admin = create(:user, :admin)
     @user_review = @event.user_reviews.first
   end

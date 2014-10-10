@@ -9,8 +9,16 @@ FactoryGirl.define do
     venue "Majestic Theatre"
     without_closing_date
 
-    factory :event_with_media_reviews do
-      ignore { media_review_count 2 }
+    trait :closed do
+      closing_date { 1.day.ago }
+    end
+
+    trait :open do
+      closing_date { 1.day.from_now }
+    end
+
+    trait :with_media_reviews do
+      ignore { media_review_count 3 }
 
       after :create do |instance, evaluator|
         create_list(
@@ -21,7 +29,12 @@ FactoryGirl.define do
       end
     end
 
-    factory :event_with_user_reviews do
+    trait :with_reviews do
+      with_user_reviews
+      with_media_reviews
+    end
+
+    trait :with_user_reviews do
       ignore { user_review_count 2 }
 
       after :create do |instance, evaluator|
@@ -31,14 +44,6 @@ FactoryGirl.define do
           event: instance
         )
       end
-    end
-
-    trait :closed do
-      closing_date { 1.day.ago }
-    end
-
-    trait :open do
-      closing_date { 1.day.from_now }
     end
 
     trait :without_closing_date do

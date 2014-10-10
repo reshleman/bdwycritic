@@ -13,7 +13,7 @@ feature "Guest views event" do
   end
 
   scenario "and sees media reviews for that event" do
-    event = create(:event_with_media_reviews)
+    event = create(:event, :with_media_reviews)
     num_media_reviews = event.media_reviews.count
     media_review = event.media_reviews.first
 
@@ -37,7 +37,7 @@ feature "Guest views event" do
   end
 
   scenario "and sees user reviews for that event" do
-    event = create(:event_with_user_reviews)
+    event = create(:event, :with_user_reviews)
     num_user_reviews = event.user_reviews.count
     user_review = event.user_reviews.first
 
