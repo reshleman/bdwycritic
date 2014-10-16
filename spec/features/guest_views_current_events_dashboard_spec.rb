@@ -19,5 +19,4 @@ feature "Guest views current events dashboard" do
 
     expect(page).not_to have_event_summary(event)
   end
-
 end
