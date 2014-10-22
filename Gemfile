@@ -36,3 +36,8 @@ group :production do
   gem 'rails_12factor'
   gem 'thin', '~> 1.6.2'
 end
+
+group :test do
+  gem 'vcr', '~> 2.9.3'
+  gem 'webmock', '~> 1.19.0'
+end
