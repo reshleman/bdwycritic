@@ -54,10 +54,10 @@ FactoryGirl.define do
   factory :media_review do
     author "Ben Brantley"
     event
-    headline "Praise for a Fantastic Show"
-    sentiment 0.9
+    headline "Hedwig"
+    sentiment 0.135518
     source "New York Times"
-    url "http://www.nytimes.com"
+    url "http://nyti.ms/1lDsQDP"
   end
 
   factory :user do
