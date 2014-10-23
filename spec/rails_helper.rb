@@ -6,10 +6,10 @@ require "vcr"
 require "webmock/rspec"
 
 VCR.configure do |c|
-  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  c.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   c.hook_into :webmock
   c.filter_sensitive_data("<ALCHEMY_API_KEY>") do
-    ENV['ALCHEMY_API_KEY']
+    ENV["ALCHEMY_API_KEY"]
   end
 end
 
