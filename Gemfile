@@ -12,7 +12,7 @@ gem 'turbolinks'
 
 gem 'monban', '~> 0.1.1'
 gem 'httparty', '~> 0.13.1'
-gem 'alchemy-api-rb', '~> 0.3.0', require: 'alchemy_api'
+gem 'alchemy-api-rb', '~> 0.5.1', require: 'alchemy_api'
 gem 'htmlentities', '~> 4.3.2'
 
 gem 'sass', '~> 3.3.14'

@@ -4,7 +4,7 @@ class MediaReviewMetadataExtractor
   def initialize(url)
     @url = url
     @title = title_query_response.titleize
-    @author = author_query_response["author"].titleize
+    @author = author_query_response.titleize
     @sentiment = sentiments_query_response["docSentiment"]["score"]
     @analyzed_text = sentiments_query_response["text"]
   end
