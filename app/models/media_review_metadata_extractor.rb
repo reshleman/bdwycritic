@@ -1,25 +1,31 @@
 class MediaReviewMetadataExtractor
-  attr_reader :title, :author, :sentiment, :analyzed_text
-
   def initialize(url)
     @url = url
-    @title = title_query_response.titleize
-    @author = author_query_response.titleize
-    @sentiment = sentiments_query_response["docSentiment"]["score"]
-    @analyzed_text = sentiments_query_response["text"]
+  end
+
+  def analyzed_text
+    sentiments_query_response["text"]
+  end
+
+  def author
+    AlchemyAPI::AuthorExtraction.new.search(url: url).titleize
+  end
+
+  def sentiment
+    sentiments_query_response["docSentiment"]["score"]
+  end
+
+  def source
+    UrlSourceExtractor.new(url).source
+  end
+
+  def title
+    AlchemyAPI::TitleExtraction.new.search(url: url).titleize
   end
 
   private
 
   attr_reader :url
-
-  def title_query_response
-    @title_query_response = AlchemyAPI::TitleExtraction.new.search(url: url)
-  end
-
-  def author_query_response
-    @author_query_respose = AlchemyAPI::AuthorExtraction.new.search(url: url)
-  end
 
   def sentiments_query_response
     @sentiments_query_response ||= perform_sentiments_query

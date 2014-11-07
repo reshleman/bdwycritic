@@ -63,15 +63,16 @@ class Admin::MediaReviewsController < AdminController
   def media_review_params_with_metadata
     params.
       require(:media_review).
-      permit(:url, :source).
+      permit(:url).
       merge(metadata_params)
   end
 
   def metadata_params
     {
-      headline: metadata.title,
       author: metadata.author,
-      sentiment: metadata.sentiment
+      headline: metadata.title,
+      sentiment: metadata.sentiment,
+      source: metadata.source
     }
   end
 end

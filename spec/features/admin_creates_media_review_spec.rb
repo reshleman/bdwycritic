@@ -32,7 +32,6 @@ feature "Admin creates media review" do
   def create_media_review(media_review)
     click_link "Add a Critic Review"
     fill_in "URL", with: media_review.url
-    fill_in "Source", with: media_review.source
     click_button "Add Critic Review"
   end
 
